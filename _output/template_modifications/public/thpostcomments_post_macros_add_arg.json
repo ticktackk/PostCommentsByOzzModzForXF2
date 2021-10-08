@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Pass additional argument to post macro.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:macro name=\"post\" arg-post=\"!\" arg-thread=\"!\"",
+    "replace": "$0 arg-nestedPost=\"\" arg-depth=\"0\""
+}

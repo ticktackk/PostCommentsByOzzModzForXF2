@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Add message depth to container",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<article class=\"message ",
+    "replace": "$0 {{ $post.thpostcomments_depth ? ' message--depth' . $post.thpostcomments_depth . ' ' : '' }} {{$post.thpostcomments_depth ? ' message-comment thpostcomments_message--condensed ' : ''}} {{ $xf.options.thpostcomments_hide_comment_depth > $post.thpostcomments_depth ? ' thpostcomments_message--expanded ' : '' }}"
+}

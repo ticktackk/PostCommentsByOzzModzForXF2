@@ -1,0 +1,9 @@
+{
+    "template": "thread_list_macros",
+    "description": "Modify thread list page count",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "last_pages($thread.reply_count",
+    "replace": "last_pages($thread.thpostcomments_root_reply_count"
+}

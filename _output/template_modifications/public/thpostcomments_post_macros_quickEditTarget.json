@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Alter quick edit target selector",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "data-editor-target=\"#js-post-{$post.post_id} .js-quickEditTarget\"",
+    "replace": "data-editor-target=\"#js-post-{$post.post_id} > div > div > .js-quickEditTarget\""
+}

@@ -1,0 +1,59 @@
+{
+    "admin/thpostcomments_tools_rebuild.json": {
+        "hash": "ab1204c6a944211e0d010e7a3e71f797"
+    },
+    "public/th_postComments_styles.json": {
+        "hash": "e55757583b6d50d6eb3a198c55390bfb"
+    },
+    "public/thcomments_post_macros.json": {
+        "hash": "03fa3a7681a5e072c4bbae417e3f442b"
+    },
+    "public/thcomments_post_macros_replaceReactionListData.json": {
+        "hash": "00f4c3037c8de75ddeb2f411dec24816"
+    },
+    "public/thcomments_post_macros_replaceReactionsBarId.json": {
+        "hash": "1c14249507abcc6f526ed24750080369"
+    },
+    "public/thcomments_post_macros_reply.json": {
+        "hash": "1ed9435d58bf6e15a78764d974790b08"
+    },
+    "public/thcomments_thread_view.json": {
+        "hash": "fe6862271941f642aed43348049d0140"
+    },
+    "public/thcomments_thread_view_commentjs.json": {
+        "hash": "0cc19d31c436159a5831b30508561bd5"
+    },
+    "public/thpostcomments_nested_posts.json": {
+        "hash": "c3396d9d61f06a6f6ebf943a9d4079a7"
+    },
+    "public/thpostcomments_post_macros.json": {
+        "hash": "5f740538b1791483cc1fbdf851f387e9"
+    },
+    "public/thpostcomments_post_macros_add_arg.json": {
+        "hash": "0e5e18a53a721931c30deb9d6fb86329"
+    },
+    "public/thpostcomments_post_macros_attribution.json": {
+        "hash": "997a126147af61ee8d1495d72cdaab22"
+    },
+    "public/thpostcomments_post_macros_comments.json": {
+        "hash": "798f85c19cc370a9f0cfef1b3b172dda"
+    },
+    "public/thpostcomments_post_macros_expand_line.json": {
+        "hash": "8248257cc5aa9dc1fdba5fd65cb26c46"
+    },
+    "public/thpostcomments_post_macros_multiQuote.json": {
+        "hash": "695b9b4d6c5ac4182c9275dc2740d91f"
+    },
+    "public/thpostcomments_post_macros_quickEditTarget.json": {
+        "hash": "cafdc6b98e61778a2db2b7443842fdfd"
+    },
+    "public/thpostcomments_thread_list_macros.json": {
+        "hash": "7fb366b72f1b98bc28f2fbc8d1f01d6c"
+    },
+    "public/thpostcomments_thread_view.json": {
+        "hash": "c598b8733b44819455367dbed022ca71"
+    },
+    "public/thpostcomments_thread_view_messageSelector.json": {
+        "hash": "257788b57fedc29819719583dead6b54"
+    }
+}

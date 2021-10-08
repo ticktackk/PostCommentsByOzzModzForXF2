@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Change default post loop to use nested loop",
+    "execution_order": 9999,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:foreach loop=\"$posts\" value=\"$post\">",
+    "replace": "<xf:foreach loop=\"$nestedPosts\" value=\"$nestedPost\">\n\t<xf:set var=\"$post\" value=\"{$nestedPost.record}\" />"
+}

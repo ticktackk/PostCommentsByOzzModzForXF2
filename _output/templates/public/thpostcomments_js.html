@@ -1,0 +1,6 @@
+<xf:js>
+	$(document).on('click', '.thpostcomments_commentLink', function(event) {
+		event.preventDefault();
+		$(this).closest('.message').toggleClass('thpostcomments_message--expanded');
+	});
+</xf:js>

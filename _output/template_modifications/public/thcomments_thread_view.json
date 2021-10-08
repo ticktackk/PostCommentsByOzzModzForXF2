@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Replace page nav item counter.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "total=\"{{ $thread.reply_count + 1 }}\"",
+    "replace": "total=\"{$total}\""
+}

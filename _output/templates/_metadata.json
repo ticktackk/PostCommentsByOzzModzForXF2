@@ -1,0 +1,42 @@
+{
+    "admin/thcomments_import_config.html": {
+        "version_id": 1000010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "admin/thcomments_import_step_config.html": {
+        "version_id": 1000010,
+        "version_string": "1.0.0 Alpha",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "admin/thpostcomments_import_config.html": {
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "public/thpostcomments_js.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "6e49d019e674ce5b2d6c99fa66d0f6b3"
+    },
+    "public/thpostcomments_new_comment.html": {
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "eb1aeeb049564b5fb3c240776afe2ed6"
+    },
+    "public/thpostcomments_post.less": {
+        "version_id": 1000191,
+        "version_string": "1.0.1 Patch Level 1",
+        "hash": "2454685c94bebe7a71cde39748da343e"
+    },
+    "public/thpostcomments_post_comment.html": {
+        "version_id": 1000231,
+        "version_string": "1.0.2 Beta 1",
+        "hash": "046741bfb98330989d1308947ef221e2"
+    },
+    "public/thpostcomments_post_macros.html": {
+        "version_id": 1000231,
+        "version_string": "1.0.2 Beta 1",
+        "hash": "6020d5060bce704677cd6eed967a9709"
+    }
+}

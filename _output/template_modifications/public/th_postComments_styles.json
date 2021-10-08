@@ -1,0 +1,9 @@
+{
+    "template": "message.less",
+    "description": "Includes the styling for post comment depth",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/$/",
+    "replace": "$0\n{{ include('thpostcomments_post.less') }}\n"
+}

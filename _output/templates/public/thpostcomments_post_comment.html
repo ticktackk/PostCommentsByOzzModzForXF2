@@ -1,0 +1,60 @@
+<xf:title>{{ phrase('thpostcomments_comment_on_x_post', {'author': $post.username}) }}</xf:title>
+
+<xf:head option="metaNoindex"><meta name="robots" content="noindex" /></xf:head>
+
+<xf:js src="themehouse/post-comments/comment.js" addon="ThemeHouse/PostComments" />
+
+<xf:breadcrumb source="$thread.getBreadcrumbs()" />
+
+<xf:form action="{{ link('posts/add-comment', $post) }}"
+		 class="block message message--depth{$post.thpostcomments_depth} message-quickReply"
+		 draft="{{ link('threads/draft', $thread) }}"
+		 data-xf-init="attachment-manager"
+		 data-preview-url="{{ link('threads/reply-preview', $thread) }}">
+	<div class="block-container">
+		<div class="block-body">
+			<span class="u-anchorTarget js-commentContainer"></span>
+			<xf:set var="$edId" value="{{ unique_id() }}" />
+			<xf:editorrow name="message"
+						  id="{$edId}"
+						  value="{$defaultMessage}"
+						  attachments="{{ $attachmentData ? $attachmentData.attachments : [] }}"
+						  rowtype="fullWidth noLabel"
+						  autofocus="autofocus"
+						  placeholder="{{ $xf.options.thpostcomments_replaceReplyButton ? phrase('reply_placeholder') : phrase('thcomments_comment_placeholder') }}"
+						  data-min-height="100"
+						  label="{{ phrase('message') }}" />
+			<xf:js>
+				$('#{$edId}').froalaEditor('events.focus', true)
+			</xf:js>
+
+			<xf:formrow>
+				<xf:if is="$attachmentData">
+					<xf:macro template="helper_attach_upload" name="upload_block"
+							  arg-attachmentData="{$attachmentData}"
+							  arg-forceHash="{$thread.draft_reply.attachment_hash}" />
+				</xf:if>
+
+				<xf:button class="button--link u-jsOnly" data-xf-click="preview-click" icon="preview" />
+			</xf:formrow>
+
+			<xf:if is="!$xf.visitor.user_id">
+				<xf:textboxrow name="_xfUsername" data-xf-init="guest-username"
+							   maxlength="{{ max_length($xf.visitor, 'username') }}"
+							   label="{{ phrase('name') }}"/>
+
+				<xf:captcharow label="{{ phrase('verification') }}" />
+			</xf:if>
+		</div>
+
+		<xf:submitrow submit="{{ phrase('thpostcomments_post_comment') }}"
+					  icon="reply"
+					  rowtype="{{ $inlineComment ? 'simple' : '' }}">
+			<xf:html>
+				<xf:if is="$inlineComment">
+					<xf:button class="js-cancelButton">{{ phrase('button.cancel') }}</xf:button>
+				</xf:if>
+			</xf:html>
+		</xf:submitrow>
+	</div>
+</xf:form>

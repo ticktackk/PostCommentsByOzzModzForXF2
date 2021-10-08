@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Modify the reply button for comments",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<xf:if is=\"\\$thread\\.canReply\\(\\))(\">.*?>{{ phrase\\('reply'\\) }}<\\/a>\\s*<\\/xf:if>)/s",
+    "replace": "$1 && !$post.thpostcomments_depth && (($post.canComment() && (!$xf.options.thpostcomments_max_comment_depth || !$xf.options.thpostcomments_replaceReplyButton)) || !$post.canComment()) $2\n\n<xf:if is=\"$post.canComment()\">\n\t<xf:if is=\"$xf.options.thpostcomments_max_comment_depth && $xf.options.thpostcomments_replaceReplyButton && $xf.visitor.hasNodePermission($thread.node_id, 'thpostcomments_comment')\">\n\t\t<a href=\"{{ link('posts/comment', $post) }}\"\n\t\t   class=\"actionBar-action actionBar-action--comment\"\n\t\t   title=\"{{ phrase('thpostcomments_reply_directly_to_this_message')|for_attr }}\"\n\t\t   data-editor-target=\"#js-post-{$post.post_id}\"\n\t\t   data-xf-click=\"comment\">{{ phrase('reply') }}</a>\n\t\t<xf:elseif is=\"$xf.options.thpostcomments_max_comment_depth && $xf.visitor.hasNodePermission($thread.node_id, 'thpostcomments_comment')\" />\n\t\t<a href=\"{{ link('posts/comment', $post) }}\"\n\t\t   class=\"actionBar-action actionBar-action--comment\"\n\t\t   title=\"{{ phrase('thpostcomments_reply_directly_to_this_message')|for_attr }}\"\n\t\t   data-editor-target=\"#js-post-{$post.post_id}\"\n\t\t   data-xf-click=\"comment\">{{ phrase('thpostcomments_comment') }}</a>\n\t</xf:if>\n</xf:if>"
+}

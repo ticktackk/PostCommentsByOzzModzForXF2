@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Adds the expandable line to the post",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<span class=\"u-anchorTarget\"",
+    "replace": "<xf:if is=\"$post.thpostcomments_depth\">\n<div class=\"thpostcomments_exandLine\"></div>\n</xf:if>\n$0"
+}

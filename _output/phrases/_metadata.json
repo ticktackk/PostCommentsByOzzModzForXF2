@@ -1,0 +1,122 @@
+{
+    "option.thpostcomments_enableMultiQuote.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "25235f9122886221182d7f54f907f4e6"
+    },
+    "option.thpostcomments_hide_comment_depth.txt": {
+        "global_cache": false,
+        "version_id": 1000170,
+        "version_string": "1.0.1",
+        "hash": "54d90f64729ca138395e9d53dc363f47"
+    },
+    "option.thpostcomments_max_comment_depth.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "a0e7873b75567a40a647e8e928f6bdf7"
+    },
+    "option.thpostcomments_replaceReplyButton.txt": {
+        "global_cache": false,
+        "version_id": 1000111,
+        "version_string": "1.0.1 Alpha 1",
+        "hash": "49d663478bcda441551ba65105e60b6d"
+    },
+    "option_explain.thpostcomments_enableMultiQuote.txt": {
+        "global_cache": false,
+        "version_id": 1000111,
+        "version_string": "1.0.1 Alpha 1",
+        "hash": "49d5e4340ba71da28d30eda70378a284"
+    },
+    "option_explain.thpostcomments_hide_comment_depth.txt": {
+        "global_cache": false,
+        "version_id": 1000191,
+        "version_string": "1.0.1 Patch Level 1",
+        "hash": "9fe9791817d72307f11e9f44b3a06746"
+    },
+    "option_explain.thpostcomments_max_comment_depth.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "12306afab389e52b35f2a89d8322165e"
+    },
+    "option_explain.thpostcomments_replaceReplyButton.txt": {
+        "global_cache": false,
+        "version_id": 1000111,
+        "version_string": "1.0.1 Alpha 1",
+        "hash": "e38c1f5984e8f54c0ca2d92d43872f6a"
+    },
+    "option_group.thpostcomments.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "17cc48b84c8202ccde7eab0bdb4bddce"
+    },
+    "option_group_description.thpostcomments.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "5f1e8c2c72200f2dc32bf095741059a0"
+    },
+    "permission.forum_thpostcomments_comment.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "07cd42fbde15ff8f38086ff71f493271"
+    },
+    "thcomments_comment_placeholder.txt": {
+        "global_cache": false,
+        "version_id": 1000111,
+        "version_string": "1.0.1 Alpha 1",
+        "hash": "77a65c29dba3f45446aa813d7c48ad93"
+    },
+    "thpostcomments_comment.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "0be8406951cdfda82f00f79328cf4efc"
+    },
+    "thpostcomments_comment_on_x_post.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "f6f07f133ae9f27eefcf686e18af10be"
+    },
+    "thpostcomments_max_comment_depth_reached.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "69bac05f46aff71ea285a29d754837d7"
+    },
+    "thpostcomments_max_nesting_depth_reached.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "d4e3e17b367aec8cb77249f59d686d39"
+    },
+    "thpostcomments_post_comment.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "5f94404bf7a236db3599df0135a590ac"
+    },
+    "thpostcomments_rebuild_post_nesting.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "e8cb558e7b4bbabde5f45470ea8e9730"
+    },
+    "thpostcomments_reply_directly_to_this_message.txt": {
+        "global_cache": false,
+        "version_id": 1000031,
+        "version_string": "1.0.0 Beta 1",
+        "hash": "c2797c9725b391c83c5a49b3a724568f"
+    },
+    "thpostcomments_x_comments.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "1304800d31c8ce929cd4342ecca9c23d"
+    }
+}

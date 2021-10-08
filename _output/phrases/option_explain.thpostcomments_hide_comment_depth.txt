@@ -1,0 +1,1 @@
+This option regulates how deep comments on posts can be shown on page load. Any depth below this level will initially be hidden and can only be revealed by clicking on a link. Set to 0 to hide all comments.

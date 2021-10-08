@@ -1,0 +1,1 @@
+This option regulates, how deep comments on posts can be nested. For example with a nesting depth of 1, only regular posts can be commented on, with a nesting depth of 2, their comments can also be commented on, and so forth.

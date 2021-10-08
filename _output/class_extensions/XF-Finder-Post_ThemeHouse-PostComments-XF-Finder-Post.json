@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Finder\\Post",
+    "to_class": "ThemeHouse\\PostComments\\XF\\Finder\\Post",
+    "execute_order": 10,
+    "active": true
+}

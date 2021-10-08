@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Add extra element to select-to-quote message selector.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(data-message-selector|arg-messageSelector)=\"\\.js-post\"/",
+    "replace": "$1=\".js-post .message-inner\""
+}

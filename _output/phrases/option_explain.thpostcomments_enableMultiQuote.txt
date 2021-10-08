@@ -1,0 +1,1 @@
+Disabling this option will disable the multi-quote functionality for comments when the multi-quote system is enabled.

@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Adds condensed class to message attribution",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<header class=\".*?message-attribution.*?\">.*?<\\/header>)/s",
+    "replace": "$0\n<xf:if is=\"{$post.thpostcomments_depth}\">\n<header class=\"message-attribution message-attribution--condensed\">\n\t<ul class=\"listInline listInline--bullet\">\n\t\t<li class=\"message-attribution-user\">\n\t\t\t<xf:avatar user=\"$post.User\" size=\"xxs\" />\n\t\t\t<h4 class=\"attribution attribution--plain\"><xf:username user=\"$post.User\" rich=\"true\" defaultname=\"{$fallbackName}\" itemprop=\"name\" /></h4>\n\t\t</li>\n\t\t<li><span class=\"u-concealed\" rel=\"nofollow\"><xf:date time=\"$post.post_date\" /></span></li>\n\t</ul>\n</header>\n</xf:if>"
+}

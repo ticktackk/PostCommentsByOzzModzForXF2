@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\Thread",
+    "to_class": "ThemeHouse\\PostComments\\XF\\Entity\\Thread",
+    "execute_order": 1,
+    "active": true
+}

@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Replaces reaction list class data with id",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "list=\"< .js-post | .js-reactionsList\"",
+    "replace": "list=\"#js-reactionsList-{$post.post_id}\""
+}

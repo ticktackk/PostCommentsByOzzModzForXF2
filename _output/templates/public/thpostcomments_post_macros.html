@@ -1,0 +1,187 @@
+<xf:macro name="comment"
+		  arg-post="!"
+		  arg-thread="!">
+
+	<article class="message message--depth{$post.thpostcomments_depth} message--simple{{ $post.isIgnored() ? ' is-ignored' : '' }} js-inlineModContainer"
+			 data-author="{{ $post.User.username ?: $post.username }}"
+			 data-content="profile-post-{$post.post_id}"
+			 id="js-post-{$post.post_id}">
+
+		<xf:if is="{$post.thpostcomments_depth} > 0">
+			<div class="th_messageCollapseTrigger">
+					<i class="fa fa-chevron-down"></i>
+			</div>
+		</xf:if>
+		<span class="u-anchorTarget" id="post-{$post.post_id}"></span>
+		<div class="message-inner">
+			<div class="message-cell message-cell--user">
+				<xf:macro template="message_macros"
+						  name="user_info_simple"
+						  arg-user="{$post.User}"
+						  arg-fallbackName="{$post.username}" />
+			</div>
+			<div class="message-cell message-cell--main">
+				<div class="message-main js-quickEditTarget">
+					<div class="message-content js-messageContent">
+						<header class="message-attribution message-attribution--plain">
+							<ul class="listInline listInline--bullet">
+								<li class="message-attribution-user">
+									<xf:avatar user="$post.User" size="xxs" />
+									<h4 class="attribution">
+										<xf:macro template="profile_post_macros"
+												  name="attribution"
+												  arg-profilePost="{$post}"
+												  arg-showTargetUser="{$showTargetUser}" />
+									</h4>
+								</li>
+								<li><a href="{{ link('posts', $post) }}"
+									   class="u-concealed"
+									   rel="nofollow">
+									<xf:date time="$post.post_date" />
+									</a>
+								</li>
+							</ul>
+						</header>
+
+						<article class="message-body">
+							{{ bb_code($post.message, 'post', $post) }}
+						</article>
+
+						<xf:if is="$post.attach_count">
+							<xf:macro template="message_macros" name="attachments"
+									  arg-attachments="{$post.Attachments}"
+									  arg-message="{$post}"
+									  arg-canView="{{ $thread.canViewAttachments() }}" />
+						</xf:if>
+					</div>
+
+
+					<footer class="message-footer">
+						<div class="message-actionBar actionBar">
+							<xf:if contentcheck="true">
+								<div class="actionBar-set actionBar-set--external">
+									<xf:contentcheck>
+										<xf:if is="$post.canLike()">
+											<a href="{{ link('posts/like', $post) }}"
+											   class="actionBar-action actionBar-action--like"
+											   data-xf-click="like"
+											   data-like-list="< .message | .js-likeList">
+												<xf:if is="$post.isLiked()">
+													{{ phrase('unlike') }}
+													<xf:else />
+													{{ phrase('like') }}
+												</xf:if>
+											</a>
+										</xf:if>
+										<xf:if is="$post.canComment()">
+											<a href="{{ link('posts/comment', $post) }}"
+											   class="actionBar-action actionBar-action--comment"
+											   title="{{ phrase('reply_quoting_this_message')|for_attr }}"
+											   data-editor-target="#js-post-{$post.post_id}"
+											   data-xf-click="comment">{{ phrase('reply') }}</a>
+										</xf:if>
+									</xf:contentcheck>
+								</div>
+							</xf:if>
+
+							<xf:if contentcheck="true">
+								<div class="actionBar-set actionBar-set--internal">
+									<xf:contentcheck>
+										<xf:if is="$post.canUseInlineModeration()">
+											<span class="actionBar-action actionBar-action--inlineMod">
+												<xf:checkbox standalone="true">
+													<xf:option value="{$post.post_id}" class="js-inlineModToggle"
+															   data-xf-init="tooltip"
+															   title="{{ phrase('select_for_moderation')|for_attr }}"
+															   label="{{ phrase('select_for_moderation') }}"
+															   hiddenlabel="true" />
+												</xf:checkbox>
+											</span>
+										</xf:if>
+
+										<xf:if is="$post.canReport()">
+											<a href="{{ link('posts/report', $post) }}"
+											   class="actionBar-action actionBar-action--report"
+											   data-xf-click="overlay">{{ phrase('report') }}</a>
+										</xf:if>
+
+										<xf:set var="$hasActionBarMenu" value="{{ false }}" />
+										<xf:if is="$post.canEdit()">
+											<xf:js src="xf/message.js" min="1" />
+											<a href="{{ link('posts/edit', $post) }}"
+											   class="actionBar-action actionBar-action--edit actionBar-action--menuItem"
+											   data-xf-click="quick-edit"
+											   data-editor-target="#js-post-{$post.post_id} .js-quickEditTarget"
+											   data-menu-closer="true">{{ phrase('edit') }}</a>
+
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+										</xf:if>
+										<xf:if is="$post.edit_count && $post.canViewHistory()">
+											<a href="{{ link('posts/history', $post) }}"
+											   class="actionBar-action actionBar-action--history actionBar-action--menuItem"
+											   data-xf-click="toggle"
+											   data-target="#js-post-{$post.post_id} .js-historyTarget"
+											   data-menu-closer="true">{{ phrase('history') }}</a>
+
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+										</xf:if>
+										<xf:if is="$post.canDelete('soft')">
+											<a href="{{ link('posts/delete', $post) }}"
+											   class="actionBar-action actionBar-action--delete actionBar-action--menuItem"
+											   data-xf-click="overlay">{{ phrase('delete') }}</a>
+
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+										</xf:if>
+										<xf:if is="$post.canCleanSpam()">
+											<a href="{{ link('spam-cleaner', $post) }}"
+											   class="actionBar-action actionBar-action--spam actionBar-action--menuItem"
+											   data-xf-click="overlay">{{ phrase('spam') }}</a>
+
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+										</xf:if>
+										<xf:if is="$xf.visitor.canViewIps() && $post.ip_id">
+											<a href="{{ link('posts/ip', $post) }}"
+											   class="actionBar-action actionBar-action--ip actionBar-action--menuItem"
+											   data-xf-click="overlay">{{ phrase('ip') }}</a>
+
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+										</xf:if>
+										<xf:if is="$post.canWarn()">
+
+											<a href="{{ link('posts/warn', $post) }}"
+											   class="actionBar-action actionBar-action--warn actionBar-action--menuItem">{{ phrase('warn') }}</a>
+
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+											<xf:elseif is="$post.warning_id && $xf.visitor.canViewWarnings()" />
+											<a href="{{ link('warnings', {'warning_id': $post.warning_id}) }}"
+											   class="actionBar-action actionBar-action--warn actionBar-action--menuItem"
+											   data-xf-click="overlay">{{ phrase('view_warning') }}</a>
+											<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+										</xf:if>
+
+										<xf:if is="$hasActionBarMenu">
+											<a class="actionBar-action actionBar-action--menuTrigger"
+											   data-xf-click="menu"
+											   title="{{ phrase('more_options')|for_attr }}"
+											   role="button"
+											   tabindex="0"
+											   aria-expanded="false"
+											   aria-haspopup="true">&#8226;&#8226;&#8226;</a>
+
+											<div class="menu" data-menu="menu" aria-hidden="true" data-menu-builder="actionBar">
+												<div class="menu-content">
+													<h4 class="menu-header">{{ phrase('more_options') }}</h4>
+													<div class="js-menuBuilderTarget"></div>
+												</div>
+											</div>
+										</xf:if>
+									</xf:contentcheck>
+								</div>
+							</xf:if>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+	</article>
+</xf:macro>

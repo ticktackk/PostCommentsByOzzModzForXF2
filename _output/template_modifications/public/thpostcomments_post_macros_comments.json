@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Adds the comments count link to posts",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$post.last_edit_date\">",
+    "replace": "<xf:if is=\"$post.thpostcomments_depth >= $xf.options.thpostcomments_hide_comment_depth && count($nestedPost.children)\">\n\t<a href=\"#\" class=\"thpostcomments_commentLink\">{{ phrase('thpostcomments_x_comments', {'count': count($nestedPost.children) }) }}</a>\n</xf:if>\n$0"
+}

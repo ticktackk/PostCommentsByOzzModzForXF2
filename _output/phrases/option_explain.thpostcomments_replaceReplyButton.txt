@@ -1,0 +1,1 @@
+If this option is enabled, a single reply link will appear and will be able to be used to post comments. Multi-quote will be disabled. If this option is disabled, a separate comment link will be shown alongside the reply and multi-quote links.

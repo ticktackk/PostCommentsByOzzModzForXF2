@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Add ID to reactions bar",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<div class=\"reactionsBar js-reactionsList",
+    "replace": "<div id=\"js-reactionsList-{$post.post_id}\" class=\"reactionsBar js-reactionsList"
+}

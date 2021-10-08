@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Adds the comment JS",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:description meta=\"false\">",
+    "replace": "<xf:js src=\"themehouse/post-comments/comment.js\" addon=\"ThemeHouse/PostComments\" />\n<xf:include template=\"thpostcomments_js\" />\n$0"
+}
