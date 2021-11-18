@@ -3,7 +3,7 @@
     "description": "Pass nested info to post macro.",
     "execution_order": 10,
     "enabled": true,
-    "action": "str_replace",
-    "find": "<xf:macro template=\"post_macros\" name=\"post\"",
-    "replace": "$0\narg-nestedPost=\"{$nestedPost}\""
+    "action": "preg_replace",
+    "find": "#\\s*<xf:macro (?:template=\"post_macros\" )?name=\"(?:{{ \\$templateOverrides\\.post_macro \\?: 'post_macros::)?post(?:' }})?\"$#m",
+    "replace": "$0 arg-nestedPost=\"{$nestedPost}\""
 }

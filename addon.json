@@ -1,14 +1,23 @@
 {
     "legacy_addon_id": "",
-    "title": "[TH] Post Comments",
+    "title": "[OzzModz] Post Comments",
     "description": "A structural modification for turning posts into threaded mode where replies are nested.",
-    "version_id": 1000292,
-    "version_string": "1.0.2 Patch Level 2",
-    "dev": "ThemeHouse",
-    "dev_url": "https://www.themehouse.com",
+    "version_id": 1000370,
+    "version_string": "1.0.3",
+    "dev": "Ozzy47",
+    "dev_url": "https://snogssite.com/",
     "faq_url": "",
     "support_url": "",
     "extra_urls": [],
-    "require": [],
+    "require": {
+        "php": [
+            "5.6",
+            "PHP 5.6+"
+        ],
+        "XF": [
+            2010070,
+            "XenForo 2.1.0+"
+        ]
+    },
     "icon": ""
 }
