@@ -49,15 +49,15 @@
     },
     "option_group.thpostcomments.txt": {
         "global_cache": false,
-        "version_id": 1000031,
-        "version_string": "1.0.0 Beta 1",
-        "hash": "17cc48b84c8202ccde7eab0bdb4bddce"
+        "version_id": 1000292,
+        "version_string": "1.0.2 Patch Level 2",
+        "hash": "aff233e4ec2221696bf262fbeca5a30b"
     },
     "option_group_description.thpostcomments.txt": {
         "global_cache": false,
-        "version_id": 1000031,
-        "version_string": "1.0.0 Beta 1",
-        "hash": "5f1e8c2c72200f2dc32bf095741059a0"
+        "version_id": 1000292,
+        "version_string": "1.0.2 Patch Level 2",
+        "hash": "5d15fd09f61a56aadc8352c2f18a1423"
     },
     "permission.forum_thpostcomments_comment.txt": {
         "global_cache": false,

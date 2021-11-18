@@ -17,7 +17,7 @@ class CMFThread extends AbstractImporter
     public static function getListInfo()
     {
         return [
-            'target' => '[TH] Post Comments',
+            'target' => '[OzzModz] Post Comments',
             'source' => 'CMF Threads'
         ];
     }
