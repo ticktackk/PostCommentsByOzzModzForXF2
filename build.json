@@ -1,6 +1,13 @@
 {
-  "additional_files": [
-    "js/themehouse/post-comments/"
-  ],
-  "minify": "*"
+    "additional_files": [
+        "js/themehouse/post-comments/"
+    ],
+    "minify": "*",
+    "exec": [
+        "composer install --working-dir=_build/upload/src/addons/{addon_id}/ --no-dev --optimize-autoloader"
+    ],
+    "exclude_files": [
+        "composer.json",
+        "composer.lock"
+    ]
 }
