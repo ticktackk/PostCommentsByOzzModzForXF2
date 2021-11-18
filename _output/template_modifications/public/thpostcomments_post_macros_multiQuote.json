@@ -3,7 +3,7 @@
     "description": "Multi-quote option for comments",
     "execution_order": 10,
     "enabled": true,
-    "action": "str_replace",
-    "find": "<xf:if is=\"$xf.options.multiQuote\">",
-    "replace": "<xf:if is=\"$xf.options.multiQuote && (!$post.thpostcomments_depth || ($post.thpostcomments_depth && $xf.options.thpostcomments_enableMultiQuote))\">"
+    "action": "preg_replace",
+    "find": "#(^\\s*<xf:if is=\"\\$xf\\.options\\.multiQuote.*?)(\">)$#sim",
+    "replace": "$1 AND (!$post.thpostcomments_depth || ($post.thpostcomments_depth && $xf.options.thpostcomments_enableMultiQuote))$2"
 }
