@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Add \"nestedPost\" and \"depth\" argument to \"post_last_edit\" macro",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "#(^<xf:macro name=\"post_last_edit\".*?)(.*?>)#m",
+    "replace": "$1 arg-nestedPost=\"\" arg-depth=\"0\"$2"
+}
