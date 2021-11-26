@@ -2,24 +2,29 @@
 
 namespace ThemeHouse\PostComments\XF\Pub\Controller;
 
+use XF\Mvc\Entity\AbstractCollection;
 use XF\Mvc\ParameterBag;
-use XF\Mvc\Reply\View;
+use XF\Mvc\Reply\View as ViewReply;
+use XF\Entity\Thread as ThreadEntity;
+use XF\Entity\Post as PostEntity;
+use ThemeHouse\PostComments\XF\Entity\Thread as ExtendedThreadEntity;
+use ThemeHouse\PostComments\XF\Entity\Post as ExtendedPostEntity;
 
 /**
- * Class Thread
- * @package ThemeHouse\PostComments\XF\Pub\Controller
+ * @version 1.0.3
  */
 class Thread extends XFCP_Thread
 {
     /**
      * @param ParameterBag $params
-     * @return View
+     * @return ViewReply
      */
     public function actionIndex(ParameterBag $params)
     {
         $view = parent::actionIndex($params);
 
-        if ($view instanceof View && $view->getParam('posts')) {
+        if ($view instanceof ViewReply && $view->getParam('posts'))
+        {
             $thread = $view->getParam('thread');
             $view->setParam('total', $thread->thpostcomments_root_reply_count + 1);
 
@@ -42,7 +47,8 @@ class Thread extends XFCP_Thread
         /** @noinspection PhpUndefinedMethodInspection */
         $view = parent::actionThreadVotes($params);
 
-        if ($view instanceof View && $view->getParam('posts')) {
+        if ($view instanceof ViewReply && $view->getParam('posts'))
+        {
             $thread = $view->getParam('thread');
             $view->setParam('total', $thread->thpostcomments_root_reply_count + 1);
 
@@ -57,22 +63,54 @@ class Thread extends XFCP_Thread
     }
 
     /**
+     * This is for XenForo 2.1+ until it was latter dropped for
+     * @see getNewPostsReplyInternal()
+     *
      * @param \XF\Entity\Thread $thread
      * @param $lastDate
-     * @return View
+     * @return ViewReply
      */
     protected function getNewPostsReply(\XF\Entity\Thread $thread, $lastDate)
     {
         $view = parent::getNewPostsReply($thread, $lastDate);
 
-        if ($view instanceof View && $view->getParam('posts')) {
+        if ($view instanceof ViewReply && $view->getParam('posts'))
+        {
             /** @var \XF\Mvc\Entity\ArrayCollection $posts */
             $posts = $view->getParam('posts');
-            $view->setParam('posts', [$view->getParam('thread')->LastPost]);
-            $posts = $posts->pop();
-            $view->setParam('firstUnshownPost', $posts->last());
+
+            $view->setParam('posts', [$thread->LastPost]);
+            $view->setParam('firstUnshownPost', $posts->pop()->last());
         }
 
         return $view;
+    }
+
+    /**
+     * @since 1.0.3
+     *
+     * This was introduced in XenForo 2.2+
+     *
+     * @param ThreadEntity|ExtendedThreadEntity $thread
+     * @param AbstractCollection $posts
+     * @param PostEntity|ExtendedPostEntity|null $firstUnshownPost
+     *
+     * @return ViewReply
+     */
+    protected function getNewPostsReplyInternal(
+        ThreadEntity $thread,
+        AbstractCollection $posts,
+        PostEntity $firstUnshownPost = null
+    )
+    {
+        $reply = parent::getNewPostsReplyInternal($thread, $posts, $firstUnshownPost);
+
+        if ($reply instanceof ViewReply)
+        {
+            $reply->setParam('posts', [$thread->LastPost]);
+            $reply->setParam('firstUnshownPost', $posts->pop()->last());
+        }
+
+        return $reply;
     }
 }
